@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name = "viewport" content = "width = 600">
+  <title><%= "#{@title} | " if @title%>Help Jeff Casimir with his Medical Expenses</title>
+  <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/stylesheets/master.css" type="text/css" media="screen" charset="utf-8" />
+</head>
+<body id="<%= @body_id %>">
+  <div id="page">
+    <div id="header">
+      <a href="/" alt="Jeff 4 Good"><img src="/images/jeff-4-good.png" /></a>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">&copy; Erik <a href="http://metaatem.net/" alt="kastner">Kastner</a>.</div>
+  </div>
+</body>
+</html>

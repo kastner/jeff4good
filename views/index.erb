@@ -1,0 +1,52 @@
+<h2>Progress: <%= @percent %>%</h2>
+<div id="progress"><div style="min-width:<%= @percent * 0.2%>em"></div></div>
+
+<h2><img src="/images/heres-the-story.png" /></h2>
+<div id="about">
+  On May 26th, Jeff Casimir landed in the Hospital with a perforated appendix. Lacking insurance, his medical bills are going to be VERY high. Help him, like he has helped so many others, and either donate something, or buy something donated!
+</div>
+
+
+
+<h2>Add something to the list</h2>
+
+<form method="POST" id="help-jeff">
+  <label>
+    Email: <input type="text" name="email" />
+  </label>
+  
+  <label>
+    Thing you can donate: <input type="text" name="thing" />
+  </label>
+  
+  <label>
+    Worth in $: <input type="text" name="worth" />
+  </label>
+  
+  <input type="image" src="/images/help-jeff.png" />
+</form>
+
+<h2><img src="/images/how-you-can-help.png" /></h2>
+<p>Find something you want to get, and pledge to buy it (by entering your email address)</p>
+<ul id="stuff">
+  <% @stuffs.each do |stuff| %>
+  
+  <li>
+    Thing: <%= stuff.thing %>
+    Worth: <%= stuff.worth %>
+    <% if stuff.pledged_at? %>
+    This has been pledged!
+    <% else %>
+    <div>
+      Want this?:
+      <form action="/pledge/<%= stuff.id %>" method="post">
+        <input type="hidden" name="_method" value="put" />
+        <input type="text" name="email" />
+        <input type="submit" value="pledge" />
+      </form>
+    </div>
+    <% end %>
+  </li>
+  
+  <% end %>
+</ul>
